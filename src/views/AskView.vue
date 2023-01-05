@@ -1,10 +1,10 @@
 <template>
-$END$
+  <div>Ask</div>
 </template>
 
 <script>
 export default {
-name: "AskView"
+  name: "AskView"
 }
 </script>
 

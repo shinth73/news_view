@@ -1,27 +1,28 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router'
-import NewsView from "../views/NewsView.vue";
-import AskView from "../views/AskView.vue";
-import JobsView from "../views/JobsView.vue";
+import {createRouter, createWebHistory} from 'vue-router'
 
-Vue.use(VueRouter);
+const routes = [
+    {
+        path: '/',
+        redirect: '/news',
+    },
+    {
+        path: '/news',
+        component: () => import('@/views/NewsView'),
+    },
+    {
+        path: '/ask',
+        component: () => import('@/views/AskView'),
+    },
+    {
+        path: '/jobs',
+        component: () => import('@/views/JobsView'),
+    },
+]
 
-export const router = new VueRouter({
-    routes: [
-        {
-            path: '/news',
-            component: NewsView,
-        },
-        {
-            path: '/ask',
-            component: AskView,
-        },
-        {
-            path: '/jobs',
-            component: JobsView,
-        },
-    ]
+const router = createRouter({
+    history: createWebHistory(),
+    routes: routes,
 });
 
 
-// export default router;
+export default router;
