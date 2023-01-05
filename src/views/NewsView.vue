@@ -1,12 +1,11 @@
 <template>
   <div>
-    <div v-for="user in users" :key="user">{{ user }}</div>
+    <div v-for="user in users" :key="user">{{ user.title }}</div>
   </div>
 </template>
 
 <script>
-import fetchNewsList from "@/api";
-
+import api from '@/api/api'
 export default {
   data() {
     return {
@@ -14,7 +13,7 @@ export default {
     }
   },
   async created() {
-    this.users = await fetchNewsList();
+    this.users = await api.fetchNewsList();
   }
 }
 </script>
