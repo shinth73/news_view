@@ -1,6 +1,6 @@
 <template>
   <div class="text-white p-3 bg-green-600">
-    <router-link to="/news">New</router-link>
+    <router-link to="/news">News</router-link>
     |
     <router-link to="/ask">Ask</router-link>
     |

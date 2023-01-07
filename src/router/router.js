@@ -17,6 +17,14 @@ const routes = [
         path: '/jobs',
         component: () => import('@/views/JobsView'),
     },
+    {
+        path: '/user/:id',
+        component: () => import('@/views/UserView'),
+    },
+    {
+        path: '/item/:id',
+        component: () => import('@/views/ItemView'),
+    }
 ]
 
 const router = createRouter({

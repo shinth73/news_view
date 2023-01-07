@@ -1,19 +1,20 @@
 <template>
   <div>
-    <div v-for="item in ask" :key="item">{{ item.title }}</div>
+    <p v-for="item in this.$store.state.ask" :key="item">
+      <router-link :to="`/item/${item.id}`">
+        {{ item.title }}
+      </router-link>
+      <small>
+        {{ item.time_ago }} by {{ item.user }}
+      </small>
+    </p>
   </div>
 </template>
 
 <script>
-import api from '@/api/api'
 export default {
-  data() {
-    return {
-      ask: []
-    }
-  },
-  async created() {
-    this.ask = await api.fetchAskList();
+  created() {
+    this.$store.dispatch('FETCH_ASK');
   }
 }
 </script>
